@@ -1,0 +1,331 @@
+{% extends "./layout/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto py-0">
+        <a href="/" class="nav-item nav-link active">Home</a>
+        <a href="/about" class="nav-item nav-link"> About us </a>
+
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Our Service</a>
+            <div class="dropdown-menu m-0">
+                <a href="blog.php" class="dropdown-item">Patience Educator</a>
+                <a href="hms/medicalintake.php" class="dropdown-item">Medication</a>
+                <a href="hms/book-appointment.php" class="dropdown-item">Appointment</a>
+                <a href="hms/medicalintakehistory.php" class="dropdown-item">Medication Surveillance</a>
+                <a href="img/dhs.apk" class="dropdown-item">Download Medical Apps </a>
+            </div>
+        </div>
+        <a href="" class="nav-item nav-link">Chat Room</a>
+        <a href="team.php" class="nav-item nav-link">Our Team</a>
+        <a href="contact.php" class="nav-item nav-link">Contact us </a>
+
+    </div>
+    <a href="hms/user-login.php" class="btn btn-primary py-2 px-4 ms-3">Sign in</a>
+    <a href="hms/registration.php" class="btn btn-primary py-2 px-4 ms-3">Sign Up</a>
+
+</div>
+</nav>
+<!-- Navbar End -->
+
+
+<!-- Full Screen Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent border-primary p-3"
+                        placeholder="Type search keyword">
+                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Full Screen Search End -->
+
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="/static/img/doc1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white  mb-3 animated slideInDown">Did You Know ?</h5>
+                        <p class="text-white">Usually, hypertension does not come with immediate symptoms. Symptoms may
+                            take a long time before they surface, and you may just feel fine. There is a need to get
+                            your blood pressure at a constant pace. Get yourself a regular screening</p>
+                        <a href="hms/blog.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn
+                            More</a>
+                        <a href="/contact" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/static/img/doc2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white  mb-3 animated slideInDown">Young people are at risk too!!</h5>
+                        <p class="text-white">Young people can have high blood pressure, too. Nearly 1 in 4 adults aged
+                            20 to 44 have high blood pressure. This is thought to be caused by increasing rates of
+                            obesity, and type 2 diabetes. While these conditions are long term, they are preventable and
+                            curable. Avoid risk factors that can lead to High blood pressure!!</p>
+                        <a href="hms/blog.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn
+                            more</a>
+                        <a href="/contact" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/static/img/doc3.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white  mb-3 animated slideInDown">Women are at risks</h5>
+                        <p class="text-white">Women are at a considerable risk for future complications of pregnancy
+                            e.g., preeclampsia. Mostly, African, and African American women are one of the ethnic groups
+                            with this risk mainly due to obesity.</p>
+                        <a href="hms/blog.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn
+                            more</a>
+                        <a href="/contact" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="w-100" src="/static/img/doc4.jpeg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h5 class="text-white  mb-3 animated slideInDown">Did you know you can reduce chance of having
+                            life threatening conditions due to hypertension? </h5>
+                        <p class="text-white">High blood pressure increases the risk for heart disease and stroke. Blood
+                            pressure is the pressure which constantly pushes blood through the lumen of your arteries
+                            for transportation. If it stays high, it can damage your heart and cause significant health
+                            complications.</p>
+                        <a href="hms/blog.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn
+                            more</a>
+                        <a href="/contact" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Banner Start -->
+<div class="container-fluid banner mb-5">
+    <div class="container">
+        <div class="row gx-0">
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                <div class="bg-primary d-flex flex-column p-5" style="height: 300px;">
+                    <h3 class="text-white mb-3">Opening Hours</h3>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Mon - Fri</h6>
+                        <p class="mb-0"> 8:00am - 10:00pm</p>
+                    </div>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Saturday</h6>
+                        <p class="mb-0"> 8:00am - 10:00pm</p>
+                    </div>
+                    <div class="d-flex justify-content-between text-white mb-3">
+                        <h6 class="text-white mb-0">Sunday</h6>
+                        <p class="mb-0"> 8:00am - 10:00pm</p>
+                    </div>
+                    <a class="btn btn-light" href="hms/book-appointment.php">Appointment</a>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                <div class="bg-dark d-flex flex-column p-5" style="height: 300px;">
+                    <h3 class="text-white mb-3">Our Service</h3>
+
+                    <p class="text-white">
+                        We give services related to Medication Surveillance,Health Educator,Appointments management
+                        system,Trackers</p>
+
+                    <a class="btn btn-light" href="">Learn more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                <div class="bg-secondary d-flex flex-column p-5" style="height: 300px;">
+                    <h3 class="text-white mb-3">Make Appointment</h3>
+                    <p class="text-white">You can place your appointment and get our services at time,DHS we care for
+                        your well being by giving you better services related to healthcare.</p>
+                    <a class="btn btn-light" href="">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Start -->
+
+
+{% include "about1.html" %}
+
+
+
+<!-- Services Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Services</h5>
+            <h1 class="display-4">Excellent Medical Services</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-pills"></i>
+                    </div>
+                    <h4 class="mb-3" style='text-align:left'>Medication Surveillance</h4>
+                    <p class="m-0" style='text-align:left'>We offer a comprehensive informed medication tracking,
+                        planning and compliance using patient
+                        centered care approach which allows a user to interact with his/ her medications panel, adjust
+                        the
+                        time to take medicines, get reminders and a generalized report for each treatment.</p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-list "></i>
+                    </div>
+                    <h4 class="mb-3">Health Educator</h4>
+                    <p class="m-0">Health Professional coaching; interact with your healthcare provider
+                        Access the most trusted Health information updates on peculiar choices.Acquire medical
+                        information and news with health Educator.</p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-stethoscope "></i>
+                    </div>
+                    <h4 class="mb-3">Appointments Management system</h4>
+                    <p class="m-0">Regularized automatic medication appointment schedule between two entities: patient
+                        and
+                        Healthcare provider.
+                        Enable user to request virtual appointment for health support and discussions.</p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-ambulance "></i>
+                    </div>
+                    <h4 class="mb-3">Trackers</h4>
+                    <p class="m-0">Set up milestones and targets.</p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-pills "></i>
+                    </div>
+                    <h4 class="mb-3">NCD Screening </h4>
+                    <p class="m-0">A growing number of people with Non communicable disease are unaware. DHS brings the
+                        solution closer to the audience timely for screening and prevention of lifethreatning
+                        comorbidities.
+                        We shall be working with our mobile medical team to get screening at patient’s place. Get
+                        regular updates on important events happening regarding the NCDS Action and Invitations.
+                    </p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div
+                    class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+                    <div class="service-icon mb-4">
+                        <i class="fa fa-2x fa-microscope "></i>
+                    </div>
+                    <h4 class="mb-3"> Our Customers and beneficiaries</h4>
+                    <p class="m-0">Our customers are Non communicable diseases (NCD) patients with difficulty to comply
+                        with
+                        medications by automatic reminders, monitoring during dispense of medications plus medical
+                        professional advice. </p>
+                    <p>Our Beneficiaries are pregnant women with trouble planning for follow up on all necessary
+                        prenatal
+                        visits, serving as a bridge to remind appropriate timings and package of information vital to
+                        having
+                        successful pregnancy.</p>
+                    <a class="btn btn-lg btn-primary rounded-pill" href="">
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+
+<!-- Offer Start -->
+<div class="container-fluid bg-offer my-5 py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 wow zoomIn" data-wow-delay="0.6s">
+                <div class="offer-text text-center rounded p-5">
+                    <h1 class="display-5 text-white">Manage your Medication with us </h1>
+                    <p class="text-white mb-4">Our customers are Non communicable diseases (NCD) patients with
+                        difficulty to comply with
+                        medications by automatic reminders, monitoring during dispense of medications plus medical
+                        professional advice.
+                        Our Beneficiaries are pregnant women with trouble planning for follow up on all necessary
+                        prenatal
+                        visits, serving as a bridge to remind appropriate timings and package of information vital to
+                        having
+                        successful pregnancy. </p>
+                    <a href="hms/book-appointment.php" class="btn btn-dark py-3 px-5 me-3">Request Appointment</a>
+                    <a href="hms/registration.php" class="btn btn-light py-3 px-5">Register with us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offer End -->
+
+
+{%include "team1.html" %}
+{% endblock content %}
