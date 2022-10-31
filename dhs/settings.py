@@ -20,10 +20,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "index",
     "user",
-    # AllAuth
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -78,14 +74,17 @@ USE_I18N = True
 
 USE_TZ = True
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR/"assets"
+if MODE == "production":
+    STATIC_ROOT = "/home/digiacqo/public_html/static"
+else:
+    STATIC_ROOT = BASE_DIR/"assets"
 STATICFILES_DIRS = [BASE_DIR/"static"]
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR/"media"
 # REGISTRATION-LOGIN URLS
-LOGIN_URL = 'account_login'
-LOGOUT_URL = 'account_logout'
-LOGIN_REDIRECT_URL = 'home'
+# LOGIN_URL = 'account_login'
+# LOGOUT_URL = 'account_logout'
+# LOGIN_REDIRECT_URL = 'home'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -93,7 +92,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
 )
 AUTH_USER_MODEL = 'user.User'
 # All Auth SETTINGS
@@ -137,10 +136,17 @@ if MODE == "production":
 
     DATABASES = {
         'default': {
-
+            'ENGINE': 'mysql.connector.django',
+            'NAME': config("DB_NAME"),
+            'USER': config("DB_USER"),
+            'PASSWORD': config('DB_PASS'),
+            'HOST': '127.0.0.1',
+            'PORT': '',
+            'OPTIONS': {
+                'sql_mode': 'STRICT_TRANS_TABLES',
+            }
         }
     }
-    DATABASES["default"] = dj_database_url.parse(config("DATABASE_URL"))
 
 
 else:

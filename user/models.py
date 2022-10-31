@@ -119,7 +119,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='profile', blank=True, null=True)
     biography = models.TextField(blank=True, null=True)
     facebook_username = models.CharField(blank=True, null=True, max_length=255)
     whatsapp_username = models.CharField(blank=True, null=True, max_length=255)
