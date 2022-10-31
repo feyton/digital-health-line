@@ -1,0 +1,133 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Sign Up</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link
+        href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/vendor/themify-icons/themify-icons.min.css">
+    <link href="/static/vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+    <link href="/static/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+    <link href="/static/vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="/static/assets/css/styles.css">
+    <link rel="stylesheet" href="/static/assets/css/plugins.css">
+    <link rel="stylesheet" href="/static/assets/css/themes/theme-1.css" id="skin_color" />
+
+
+
+
+</head>
+
+<body class="login">
+    <!-- start: REGISTRATION -->
+    <div class="row">
+        <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+            <div class="logo margin-top-30">
+                <h2>User Sign Up</h2>
+            </div>
+            <!-- start: REGISTER BOX -->
+            <div class="box-register">
+                <form name="registration" action="" id="registration" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>
+                            Sign Up
+                        </legend>
+                        <p>
+                            Enter your account details below:
+                        </p>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                {% render_field form.first_name class="form-control" placeholder="First name" %}
+                                <i class="fa fa-envelope"></i> </span>
+                            <span id="user-availability-status1" style="font-size:12px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                {% render_field form.last_name class="form-control" placeholder="Last name" %}
+                                <i class="fa fa-envelope"></i> </span>
+                            <span id="user-availability-status1" style="font-size:12px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                {% render_field form.email class="form-control" %}
+                                <i class="fa fa-envelope"></i> </span>
+                            <span id="user-availability-status1" style="font-size:12px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                <input type="password" class="form-control" id="password" name="password1"
+                                    placeholder="Password" id="id_password1" required>
+                                <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                <input type="password" id="id_password2" class="form-control" name="password2"
+                                    placeholder="Password Again" required>
+                                <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox clip-check check-primary">
+                                <input required type="checkbox" id="agree" value="agree">
+                                <label for="agree">
+                                    I agree User Aggreement
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <p>
+                                Already have an account?
+                                <a href="{% url 'account_login' %}">
+                                    Log-in
+                                </a>
+                            </p>
+                            <button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">
+                                Submit <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="copyright">
+                    &copy; <span class="current-year"></span><span class="text-bold text-uppercase">DHS</span>.
+                    <span>All rights reserved</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/vendor/modernizr/modernizr.js"></script>
+    <script src="/static/vendor/jquery-cookie/jquery.cookie.js"></script>
+    <script src="/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="/static/vendor/switchery/switchery.min.js"></script>
+    <script src="/static/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/static/assets/js/main.js"></script>
+    <script src="/static/assets/js/login.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            Login.init();
+        });
+    </script>
+
+
+
+</body>
+<!-- end: BODY -->
+
+</html>

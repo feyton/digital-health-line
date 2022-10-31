@@ -18,8 +18,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.humanize',
+    'django.contrib.sitemaps',
+    'django.contrib.redirects',
     "index",
     "user",
+    'widget_tweaks',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +90,9 @@ STATICFILES_DIRS = [BASE_DIR/"static"]
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR/"media"
 # REGISTRATION-LOGIN URLS
-# LOGIN_URL = 'account_login'
-# LOGOUT_URL = 'account_logout'
-# LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+LOGIN_REDIRECT_URL = 'home'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -92,7 +100,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     # `allauth` specific authentication methods, such as login by e-mail
-    # 'allauth.account.auth_backends.AuthenticationBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 AUTH_USER_MODEL = 'user.User'
 # All Auth SETTINGS
