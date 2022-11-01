@@ -1,10 +1,12 @@
 {% load static %}
 {% load widget_tweaks %}
+{% load i18n %}
+{% load account socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>User-Login</title>
+    <title>Login | DHS</title>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -34,7 +36,7 @@
             </div>
 
             <div class="box-login">
-                <form class="form-login" action="{% url 'account_login' %}" method="post">
+                <form action="{% url 'account_login' %}" method="post">
                     {% csrf_token %}
                     <fieldset>
                         <legend>
@@ -60,6 +62,9 @@
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
 
                         <div class="form-actions">
 
@@ -76,6 +81,7 @@
                                 Create an account
                             </a>
                         </div>
+                        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                     </fieldset>
                 </form>
 

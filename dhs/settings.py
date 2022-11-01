@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     "index",
     "user",
+    "dashboard",
     'widget_tweaks',
     'allauth',
     'allauth.account',
@@ -107,7 +108,7 @@ AUTH_USER_MODEL = 'user.User'
 SIGNUP_FORM_CLASS = 'user.forms.CreateUserForm'
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
@@ -128,19 +129,20 @@ def ACCOUNT_USER_DISPLAY(user):
 
 
 SITE_ID = 1
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = '198.54.115.142'
+EMAIL_PORT = '465'
 EMAIL_HOST_USER = config("EMAIL_USER")
 EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 if MODE == "production":
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = True
     APPEND_SLASH = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     ADMINS = (
-        ("Ineza", "info@digitalhealthline/org"))
+        ("Ineza", "info@digitalhealthline.org"))
 
     DATABASES = {
         'default': {
@@ -158,7 +160,8 @@ if MODE == "production":
 
 
 else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -167,6 +170,6 @@ else:
     }
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
+SERVER_EMAIL = 'info@digitalhealthline.org'
 CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com",
                         'https://digitalhealthline.org', "http://digitalhealthline.org"]
