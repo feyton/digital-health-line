@@ -1,11 +1,12 @@
-import dj_database_url
-from decouple import config
 import os
+from email.policy import default
 from pathlib import Path
+
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODE = config("MODE", cast=str, default="dev")
-SECRET_KEY = config("SECRET_KEY", cast=str)
+SECRET_KEY = config("SECRET_KEY", cast=str, default="add-your-key-here")
 DEBUG = config("DEBUG", cast=bool, default=True)
 ALLOWED_HOSTS = ["*"]
 
@@ -127,49 +128,33 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = 'DHS |'
 def ACCOUNT_USER_DISPLAY(user):
     return user.get_full_name()
 
-
 SITE_ID = 1
-EMAIL_HOST = '198.54.115.142'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = config("EMAIL_USER")
-EMAIL_HOST_PASSWORD = config('EMAIL_PASS')
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-
-if MODE == "production":
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    APPEND_SLASH = True
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
-    ADMINS = (
-        ("Ineza", "info@digitalhealthline.org"))
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'mysql.connector.django',
-            'NAME': config("DB_NAME"),
-            'USER': config("DB_USER"),
-            'PASSWORD': config('DB_PASS'),
-            'HOST': '127.0.0.1',
-            'PORT': '',
-            'OPTIONS': {
-                'sql_mode': 'STRICT_TRANS_TABLES',
-            }
-        }
-    }
-
-
-else:
-    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    DATABASES = {
+EMAIL_HOST_USER = config("EMAIL_USER", "")
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+if MODE == "production":
+    APPEND_SLASH = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
+    ANYMAIL = {
+        "MAILJET_API_KEY": config("MAILJET_API_KEY", default=""),
+        "MAILJET_SECRET_KEY": config("MAILJET_SECRET_KEY", default=""),
+    }
+    MEDIA_ROOT = "/var/www/digitalhealthline.org/media"
+    STATIC_ROOT = "/var/www/digitalhealthline.org/static"
+else:
+    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 SERVER_EMAIL = 'info@digitalhealthline.org'
-CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com",
+CSRF_TRUSTED_ORIGINS = [
                         'https://digitalhealthline.org', "http://digitalhealthline.org"]
